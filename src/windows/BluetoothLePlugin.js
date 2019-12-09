@@ -836,12 +836,6 @@ function getDeviceByAddress(deviceAddress) {
 }
 
 function getService(deviceId, serviceId) {
-  for (var i = 0; i < cachedServices.length; i++) {
-    var service = cachedServices[i];
-    if (service.deviceId === deviceId && service.serviceId === serviceId) {
-      return WinJS.Promise.as(service.deviceService);
-    }
-  }
 
   if (serviceId.length === 4) {
     serviceId = BluetoothUuidHelper.fromShortId(parseInt("0x" + serviceId, 16));
